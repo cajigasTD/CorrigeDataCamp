@@ -17,3 +17,6 @@ setwd("entregas_descomprimidas")
 ficheros <- list.files(pattern = "\\.txt$")
 ```
 
+```{r}
+ficheros_puntos <- ficheros[grep("puntos", ficheros, ignore.case = TRUE)]
+```
