@@ -76,3 +76,7 @@ df$clave <- paste(df$apellidos)
 
 resultado <- merge(alumnos, df, by = "clave", all.x = TRUE)
 ```
+
+```{r}
+write.xlsx(resultado, "AlumnosNotas.xlsx", overwrite = TRUE)
+```
