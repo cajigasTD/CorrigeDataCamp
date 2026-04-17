@@ -61,3 +61,8 @@ library(openxlsx)
 
 write.xlsx(df, "NotasRIntermedio.xlsx", overwrite = TRUE)
 ```
+
+```{r}
+unique(df$NomFile)
+length(unique(df$NomFile))
+```
