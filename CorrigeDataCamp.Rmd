@@ -53,5 +53,11 @@ df <- data.frame(
   stringsAsFactors = FALSE
 )
 
-df <- evalua_df[order(df$apellidos), ]
+df <- df[order(df$apellidos), ]
+```
+
+```{r}
+library(openxlsx)
+
+write.xlsx(df, "NotasRIntermedio.xlsx", overwrite = TRUE)
 ```
