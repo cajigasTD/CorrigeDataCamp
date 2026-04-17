@@ -12,11 +12,34 @@ unzip("2025-26 Tractament de les dades Gr.A-T (36423)-Tarea Intermediate R(Datac
 ```
 
 ```{r}
-setwd("entregas_descomprimidas")
-
-ficheros <- list.files(pattern = "\\.txt$")
+ficheros <- list.files("entregas_descomprimidas", pattern = "\\.txt$", recursive = TRUE)
 ```
 
 ```{r}
 ficheros_puntos <- ficheros[grep("puntos", ficheros, ignore.case = TRUE)]
+```
+
+```{r}
+apellidos <- c()
+puntos <- c()
+NomFile <- c()
+Puntos <- c()
+
+for (i in 1:length(ficheros_puntos)) {
+  
+  ruta <- ficheros_puntos[i]
+  
+  partes <- strsplit(ruta, "/")[[1]]
+  carpeta <- partes[length(partes) - 1]
+  nombre <- strsplit(carpeta, "_")[[1]][1]
+  apellido <- strsplit(nombre, ",")[[1]][1]
+  
+  contenido <- readLines(ruta)
+  texto <- paste(contenido, collapse = " ")
+  
+  apellidos <- c(apellidos, trimws(apellido))
+  puntos <- c(puntos, as.numeric(texto))
+  NomFile <- c(NomFile, partes[length(partes)])
+  Puntos <- c(Puntos, texto)
+}
 ```
