@@ -11,3 +11,9 @@ unzip("2025-26 Tractament de les dades Gr.A-T (36423)-Tarea Intermediate R(Datac
       exdir = "entregas_descomprimidas")
 ```
 
+```{r}
+setwd("entregas_descomprimidas")
+
+ficheros <- list.files(pattern = "\\.txt$")
+```
+
