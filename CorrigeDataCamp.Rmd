@@ -63,6 +63,16 @@ write.xlsx(df, "NotasRIntermedio.xlsx", overwrite = TRUE)
 ```
 
 ```{r}
-unique(df$NomFile)
-length(unique(df$NomFile))
+library(readxl)
+
+alumnos <- read_excel("AlumnosTD25_26.xlsx")
+alumnos <- as.data.frame(alumnos)
+
+alumnos$clave <- paste(alumnos$`Apellido(s)`, alumnos$Nombre, sep = ", ")
+
+
+df$clave <- paste(df$apellidos)
+
+
+resultado <- merge(alumnos, df, by = "clave", all.x = TRUE)
 ```
