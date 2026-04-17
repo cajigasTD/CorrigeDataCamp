@@ -43,3 +43,15 @@ for (i in 1:length(ficheros_puntos)) {
   Puntos <- c(Puntos, texto)
 }
 ```
+
+```{r}
+df <- data.frame(
+  apellidos,
+  puntos,
+  NomFile,
+  Puntos,
+  stringsAsFactors = FALSE
+)
+
+df <- evalua_df[order(df$apellidos), ]
+```
